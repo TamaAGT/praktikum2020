@@ -1,0 +1,62 @@
+---
+title: "Tugas_2"
+author: "Harya Anggitama"
+date: "9/23/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Proses Import dataset "murders"
+
+```{r}
+library(dslabs)
+data(murders)
+```
+# Nomor 1
+Memeriksa struktur objek "murders"
+
+```{r}
+str(murders)
+```
+
+## Pernyataan yang paling menggambarkan karakter dari tiap variabel pada data frame adalah:
+## c. Data berisi nama Negara bagian, singkatan dari nama negara bagian, wilayah negara bagian, dan populasi negara bagian serta jumlah total pembunuhan pada tahun 2010.
+
+# Nomor 2 
+## Nama kolom yang digunakan pada data frame antara lain: state, abb, region, population, dan total.
+
+# Nomor 3
+Menyimpan singkatan nama negara ke variabel a. Kemudian menyebutkan jenis class dari variabel tersebut.
+
+```{r}
+a <- murders$abb
+class(a)
+```
+
+# Nomor 4
+Mengekstrak singkatan negara dan menyimpannya pada variabel b.
+
+```{r}
+b <- murders[ , 2]
+print(identical(a, b))
+```
+Dapat diketahaui bahwa variabel a dan b mepunyai nilai yang sama.
+
+# Nomor 5 
+Menentukan jumlah region yang dimiliki oleh dataset.
+
+```{r}
+jumRegion <- levels(murders$region)
+length(jumRegion)
+```
+Diketahui bahwa terdapat 4 region yang ada pada dataset.
+
+# Nomor 6
+Menampilkan tabel yang berisi jumlah state pada tiap region.
+
+```{r}
+table(murders$region)
+```
