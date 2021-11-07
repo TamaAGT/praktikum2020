@@ -1,0 +1,68 @@
+---
+title: "Latihan4_123190125"
+author: "Harya Anggitama"
+date: "11/3/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(dslabs)
+data(murders)
+```
+
+
+## Nomor 1
+
+Menggunakan as_tibble untuk mengonversi data set us_murders
+```{r}
+murders_tibble <- as_tibble(murders)
+head(murders_tibble)
+```
+
+## Nomor 2
+
+Menggunakan fungsi group_by untuk mengonversi data set us_murders menjadi sebuah tibble yang dikelompokkan berdasarkan region:
+```{r}
+murders_tibble_region <- murders %>%
+  group_by(region) %>%
+  as_tibble()
+
+murders_tibble_region
+```
+
+## Nomor 3
+
+Menulis script tidyverse yang menghasilkan output yang sama dengan perintah berikut:
+
+exp(mean(log(murders$population)))
+```{r}
+murders %>%
+  pull(population) %>%
+  log %>%
+  mean %>%
+  exp 
+  
+```
+
+## Nomor 4
+
+Menggunakan fungsi map_df untuk membuat data frame yang terdiri dari tiga kolom: 'n', 's_n', dan 's_n_2'
+
+```{r}
+compute_s_n <- function(n) {
+  x <- 1:n
+  for (row in x) {
+    
+  }
+   tibble(n = x)
+}
+
+s_n <- map_df(100, compute_s_n)
+
+s_n
+```
